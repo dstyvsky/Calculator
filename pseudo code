@@ -1,0 +1,29 @@
+
+
+
+
+set number storage to receptical one
+
+wait for button press
+
+	if button is a number
+
+		concatenate it to the set storage
+
+	else if, button is an operator
+
+		if "equals" 
+			execute and exit loop
+
+		else, save what the operator is
+			set number storage to opposite receptical
+
+		end
+
+		
+
+	end
+
+
+
+

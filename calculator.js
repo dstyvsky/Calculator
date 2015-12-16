@@ -20,6 +20,9 @@ $( document ).ready(function(){
 				console.log("will add");
 				first_num_filled = !first_num_filled;
 				mathMethod = "plus";
+				$('#display_left').empty();
+				$('#display_left').append("+");
+
 	
 
 			} else if ( num0 == "-"){
@@ -27,9 +30,11 @@ $( document ).ready(function(){
 				console.log("will subtract");
 				first_num_filled = !first_num_filled;
 				mathMethod = "subtract";
+				$('#display_left').empty();
+				$('#display_left').append("-");
 				
 
-			} else {
+			} else if ( num0 == "=") {
 
 				console.log("equals");
 				if (mathMethod == "plus"){
@@ -39,14 +44,17 @@ $( document ).ready(function(){
 				}
 
 				console.log(total_num);
+				$('#display_left').empty();
 				$('#display').empty();
 				$('#display').append(Number(total_num));
 				clearVars();
-
-
-
-
+			} else {
+				clearVars();
+				first_num = "";
+				$('#display').empty();
+				$('#display_left').empty();
 			}
+
 
 		} else if (!first_num_filled) {
 
@@ -63,8 +71,12 @@ $( document ).ready(function(){
 
 
 function firstFunction(num1) {
+
+
 	
-	first_num = first_num.concat(num1);
+		first_num = first_num.concat(num1);
+
+
 	console.log(first_num);
 	$('#display').empty();
 	$('#display').append(Number(first_num));
@@ -80,8 +92,9 @@ function secondFunction(num2) {
 }
 
 function clearVars(){
+
 	first_num_filled = false;
-	first_num = "";
+	first_num = total_num;
 	sec_num = "";
 	total_num = 0;
 	mathMethod = "none";
